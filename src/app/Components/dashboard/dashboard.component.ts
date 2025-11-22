@@ -123,7 +123,7 @@ ngOnDestroy() {
 
   // ✅ COPY
 copy(code: string) {
-  const shortUrl = `https://tinylink-api-g739.onrender.com/${code}`;
+  const shortUrl = `https://tinylink-api-g739.onrender.com/r/${code}`;
   navigator.clipboard.writeText(shortUrl).then(() => {
     alert('✅ Short link copied successfully!');
   });
@@ -133,7 +133,7 @@ copy(code: string) {
 
   // ✅ OPEN LINK
 visit(code: string) {
-  window.open(`https://tinylink-api-g739.onrender.com/${code}`, '_blank');
+  window.open(`https://tinylink-api-g739.onrender.com/r/${code}`, '_blank');
 }
 
 
