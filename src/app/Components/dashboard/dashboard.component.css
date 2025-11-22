@@ -1,0 +1,213 @@
+/* ===== Global Layout ===== */
+.container {
+  max-width: 1200px;
+  margin: 80px auto 30px;
+  padding: 20px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Header ===== */
+h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* ===== Create Box ===== */
+.create-box {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.create-box form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.create-box input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: 0.2s ease-in-out;
+}
+
+.create-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.create-box button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.create-box button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ===== Stats Box ===== */
+.stats-box {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stats-box div {
+  flex: 1;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.stats-box strong {
+  display: block;
+  font-size: 22px;
+  color: #111827;
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+/* ===== Search ===== */
+.search-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  background: white;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+thead {
+  background: #f1f5f9;
+}
+
+th, td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #374151;
+}
+
+th {
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s ease-in-out;
+}
+
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* ===== Short URL ===== */
+.short-url {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.short-url:hover {
+  color: #1d4ed8;
+}
+
+/* ===== Original URL Truncate ===== */
+.truncate {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Buttons ===== */
+button {
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+td button {
+  background: #e5e7eb;
+  color: #374151;
+  margin-right: 6px;
+}
+
+td button:hover {
+  background: #d1d5db;
+}
+
+/* Delete Button */
+button.danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+button.danger:hover {
+  background: #fecaca;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .stats-box {
+    flex-direction: column;
+  }
+
+  .create-box form {
+    flex-direction: column;
+  }
+
+  th, td {
+    font-size: 12px;
+  }
+}

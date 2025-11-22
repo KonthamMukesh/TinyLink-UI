@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <h2>🔗 TinyLink Dashboard</h2>
+
+  <!-- ✅ CREATE FORM ON TOP -->
+  <div class="create-box">
+    <form [formGroup]="createLinkForm" (ngSubmit)="createShortLink()">
+      <input
+        type="text"
+        placeholder="Enter long URL"
+        formControlName="longUrl"
+      />
+
+      <input
+        type="text"
+        placeholder="Custom short code (optional)"
+        formControlName="customCode"
+      />
+
+      <button type="submit">Create</button>
+    </form>
+  </div>
+
+  <!-- ✅ STATS -->
+  <div class="stats-box">
+    <div>All: <strong>{{ stats.all }}</strong></div>
+    <div>Active: <strong>{{ stats.active }}</strong></div>
+    <div>Inactive: <strong>{{ stats.inactive }}</strong></div>
+  </div>
+
+  <!-- ✅ SEARCH BAR
+  <input
+    type="text"
+    placeholder="Search links..."
+    [(ngModel)]="searchText"
+    (input)="filterLinks()"
+    class="search-input"
+  /> -->
+
+  <!-- ✅ LINKS TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <!-- <th>ID</th> -->
+        <th>Short URL</th>
+        <th>Original URL</th>
+        <th>Total Clicks</th>
+        <th>Last Clicked</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let link of filteredLinks">
+        <!-- <td>{{ link.id }}</td> -->
+
+        <!-- ✅ Short URL -->
+        <td>
+  <span class="short-url" (click)="visit(link.code)">
+    {{ link.code }}
+  </span>
+
+  <button (click)="copy(link.code)">📋</button>
+</td>
+
+
+        <!-- ✅ Original URL -->
+        <td class="truncate" title="{{ link.long_url }}">
+          {{ link.long_url }}
+        </td>
+
+        <!-- ✅ Clicks -->
+        <td>{{ link.clicks }}</td>
+
+        <!-- ✅ Last Clicked -->
+        <td>
+          {{ link.last_clicked_at ? (link.last_clicked_at | date:'short') : 'Never' }}
+        </td>
+
+        <!-- ✅ Actions -->
+        <td>
+          <button (click)="editLink(link)">Edit</button>
+          <button (click)="deleteLink(link.id)" class="danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

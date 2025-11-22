@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>📊 Link Management</h2>
+
+  <div class="msg success" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <!-- ✅ TABLE -->
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Short URL</th>
+        <th>Original URL</th>
+        <th>Clicks</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let link of links" (click)="viewDetails(link)" class="row-clickable">
+        <td class="clickable" >
+          {{ link.code }}
+        </td>
+        <td class="truncate">{{ link.long_url }}</td>
+        <td>{{ link.clicks }}</td>
+        <td>{{ link.created_at | date:'medium' }}</td>
+        <td>
+          <button (click)="editCode(link)">Edit</button>
+          <button (click)="deleteLink(link.id)" class="danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ✅ MODAL POPUP -->
+<!-- ✅ Modern Modal -->
+<div class="modal-overlay" *ngIf="selectedLink">
+  <div class="modal-card">
+
+    <!-- Header -->
+    <div class="modal-header">
+      <h3>🔗 Link Details</h3>
+      <button class="close-btn" (click)="closeDetails()">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <div class="detail-row">
+        <span>Short Code</span>
+        <strong>{{ selectedLink.code }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Original URL</span>
+        <a [href]="selectedLink.long_url" target="_blank">
+          {{ selectedLink.long_url }}
+        </a>
+      </div>
+
+      <div class="detail-row">
+        <span>Total Clicks</span>
+        <strong>{{ selectedLink.clicks }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Created At</span>
+        <strong>{{ selectedLink.created_at | date:'medium' }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Last Clicked</span>
+        <strong>
+          {{ selectedLink.last_clicked_at || 'Never' }}
+        </strong>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- <div class="modal-footer">
+      <button class="close-main-btn" (click)="closeDetails()">
+        Close
+      </button>
+    </div> -->
+
+  </div>
+</div>

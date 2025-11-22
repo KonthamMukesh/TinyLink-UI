@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>🩺 System Health</h2>
+
+  <div *ngIf="loading">Checking server and database...</div>
+
+  <div *ngIf="!loading" class="health-status">
+    <p>{{ status }}</p>
+    <p>{{ dbStatus }}</p>
+    <p>{{ uptime }}</p>
+  </div>
+</div>

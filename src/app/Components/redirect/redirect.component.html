@@ -1,0 +1,22 @@
+<!-- Loading UI -->
+<div *ngIf="loading && !notFound" class="redirecting">
+  <div class="spinner"></div>
+  <h2>Redirecting...</h2>
+  <p>Please wait…</p>
+</div>
+
+<!-- Not Found UI -->
+<div *ngIf="notFound" class="not-found">
+  <h1>404</h1>
+  <h2>Link Not Found</h2>
+
+  <p>
+    The short URL you are trying to open does not exist or has expired.
+  </p>
+
+  <p class="code-info">
+    Code: <strong>{{ code }}</strong>
+  </p>
+
+  <a routerLink="/" class="btn-home">Go to Dashboard</a>
+</div>

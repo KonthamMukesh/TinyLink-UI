@@ -1,0 +1,63 @@
+/* ===== Fixed Navbar Base ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #021b33;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  color: white;
+  box-sizing: border-box;
+  z-index: 9999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Logo ===== */
+.logo {
+  font-size: 28px;
+  color: #ff7a36;
+  font-weight: 700;
+}
+
+/* ===== Navigation (Left aligned) ===== */
+.center-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  gap: 25px;
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.center-nav a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Hover */
+.center-nav a:hover {
+  opacity: 0.8;
+}
+
+/* Active Route Highlight */
+.active-link {
+  color: #ff7a36;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ff7a36;
+  border-radius: 5px;
+}

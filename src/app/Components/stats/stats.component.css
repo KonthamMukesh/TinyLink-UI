@@ -1,0 +1,246 @@
+.container {
+  padding: 110px 30px 40px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8fafc;
+}
+
+/* Success Message */
+.msg.success {
+  background: linear-gradient(135deg, #d4fadd, #baf3c6);
+  color: #067d2b;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+.error {
+  color: #cc0000;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Table Card Look */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 16px;
+  border-bottom: 1px solid #eef2f6;
+}
+
+th {
+  background: #f1f5f9;
+  font-weight: 700;
+  font-size: 14px;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:hover {
+  background: #f8fafc;
+}
+
+/* Clickable short code */
+.clickable {
+  color: #ff7a36;
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.clickable:hover {
+  color: #e85d18;
+  text-decoration: underline;
+}
+
+/* URL truncate */
+.truncate {
+  max-width: 340px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #475569;
+}
+
+/* Status */
+.active {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.inactive {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Buttons */
+button {
+  padding: 8px 14px;
+  margin-right: 6px;
+  border: none;
+  background: #0f172a;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.05s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button.danger {
+  background: #ef4444;
+}
+
+/* Row clickable hover */
+.row-clickable {
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.row-clickable:hover {
+  background-color: #f1f5f9;
+}
+
+/* Prevent modal opening on button click */
+td button {
+  position: relative;
+  z-index: 2;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Card */
+.modal-card {
+  background: white;
+  width: 460px;
+  max-width: 95%;
+  border-radius: 20px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
+  animation: scalePop 0.2s ease-out;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 26px;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* Close Icon */
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 22px 26px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.detail-row span {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.detail-row strong,
+.detail-row a {
+  font-size: 15px;
+  color: #0f172a;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+.detail-row a {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.detail-row a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 18px 26px;
+  border-top: 1px solid #eef2f6;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Footer Button */
+.close-main-btn {
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.close-main-btn:hover {
+  background: #020617;
+}
+
+/* Animation */
+@keyframes scalePop {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

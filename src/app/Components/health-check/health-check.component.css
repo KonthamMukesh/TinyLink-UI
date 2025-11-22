@@ -1,0 +1,72 @@
+/* Page container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 30px 40px; /* space for fixed navbar */
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Title */
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+/* Loading text */
+.container div {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* Health status card */
+.health-status {
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Status text */
+.health-status p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Icons inside text spacing */
+.health-status p::before {
+  content: "•";
+  margin-right: 12px;
+  font-size: 22px;
+  color: #10b981;
+}
+
+/* Uptime highlight */
+.health-status p:last-child {
+  background: #ecfeff;
+  padding: 14px 20px;
+  border-radius: 14px;
+  color: #0369a1;
+  font-weight: 700;
+  margin-top: 18px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
