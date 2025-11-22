@@ -89,16 +89,20 @@ ngOnDestroy() {
   }
 
   // ✅ LOAD LINKS
-  loadLinks() {
-    this.dashboardService.getAllLinks().subscribe({
-      next: (res: any) => {
-        this.links = res || [];
-        this.filteredLinks = [...this.links];
-        this.calculateStats();
+ loadLinks() {
+  this.dashboardService.getAllLinks().subscribe({
+    next: (res: any) => {
+      this.links = res || [];
+      this.filteredLinks = [...this.links];
+      this.calculateStats();
+      this.loading = false;
+    },
+    error: () => {
+      this.loading = false;
+    }
+  });
+}
 
-      }
-    });
-  }
 
   // ✅ STATS
   calculateStats() {
@@ -119,15 +123,19 @@ ngOnDestroy() {
 
   // ✅ COPY
 copy(code: string) {
-  const shortUrl = `http://localhost:4200/${code}`;
+  const apiBase = 'https://tinylink-api-g739.onrender.com';
+  const shortUrl = `${apiBase}/${code}`;
+
   navigator.clipboard.writeText(shortUrl).then(() => {
     alert('✅ Short link copied successfully!');
   });
 }
 
+
   // ✅ OPEN LINK
 visit(code: string) {
-  window.open(`http://localhost:4200/${code}`, '_blank');
+  const apiBase = 'https://tinylink-api-g739.onrender.com';  // your Render API
+  window.open(`${apiBase}/${code}`, '_blank');
 }
 
 
