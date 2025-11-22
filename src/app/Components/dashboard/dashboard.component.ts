@@ -123,20 +123,19 @@ ngOnDestroy() {
 
   // ✅ COPY
 copy(code: string) {
-  const apiBase = 'https://tinylink-api-g739.onrender.com';
-  const shortUrl = `${apiBase}/${code}`;
-
+  const shortUrl = `https://tinylink-api-g739.onrender.com/${code}`;
   navigator.clipboard.writeText(shortUrl).then(() => {
     alert('✅ Short link copied successfully!');
   });
 }
 
 
+
   // ✅ OPEN LINK
 visit(code: string) {
-  const apiBase = 'https://tinylink-api-g739.onrender.com';  // your Render API
-  window.open(`${apiBase}/${code}`, '_blank');
+  window.open(`https://tinylink-api-g739.onrender.com/${code}`, '_blank');
 }
+
 
 
 
