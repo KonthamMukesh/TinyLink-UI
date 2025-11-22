@@ -38,24 +38,24 @@ window: any;
     private dashboardService: DashboardService
   ) {}
 
-private refreshTimer: any;
-
 ngOnInit() {
   this.createLinkForm = this.fb.group({
-    longUrl: ['', Validators.required],
-    customCode: ['', [Validators.pattern(/^[A-Za-z0-9]{6,8}$/)]]
-  });
+  longUrl: ['', [Validators.required]],
+  customCode: ['', [
+    Validators.pattern(/^[A-Za-z0-9]{6,8}$/)
+  ]]
+});
 
   this.loadLinks();
+}
 
-  this.refreshTimer = setInterval(() => {
+// Add this to auto-refresh
+ngAfterViewInit() {
+  setInterval(() => {
     this.loadLinks();
-  }, 5000);
+  }, 3000);  // refresh every 3 seconds
 }
 
-ngOnDestroy() {
-  clearInterval(this.refreshTimer);
-}
 
   // ✅ CREATE LINK
   createShortLink() {
@@ -89,20 +89,16 @@ ngOnDestroy() {
   }
 
   // ✅ LOAD LINKS
- loadLinks() {
-  this.dashboardService.getAllLinks().subscribe({
-    next: (res: any) => {
-      this.links = res || [];
-      this.filteredLinks = [...this.links];
-      this.calculateStats();
-      this.loading = false;
-    },
-    error: () => {
-      this.loading = false;
-    }
-  });
-}
+  loadLinks() {
+    this.dashboardService.getAllLinks().subscribe({
+      next: (res: any) => {
+        this.links = res || [];
+        this.filteredLinks = [...this.links];
+        this.calculateStats();
 
+      }
+    });
+  }
 
   // ✅ STATS
   calculateStats() {
@@ -123,20 +119,17 @@ ngOnDestroy() {
 
   // ✅ COPY
 copy(code: string) {
-  const shortUrl = `https://tinylink-api-g739.onrender.com/r/${code}`;
+  const shortUrl = `http://localhost:4200/${code}`;
   navigator.clipboard.writeText(shortUrl).then(() => {
     alert('✅ Short link copied successfully!');
   });
 }
 
-
-
   // ✅ OPEN LINK
 visit(code: string) {
-  window.open(`https://tinylink-api-g739.onrender.com/r/${code}`, '_blank');
+  const apiBase = 'http://localhost:3000/api/r/';
+  window.open(`${apiBase}${code}`, '_blank');  // ✅ opens in NEW tab
 }
-
-
 
 
 
