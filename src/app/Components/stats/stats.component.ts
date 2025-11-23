@@ -31,7 +31,7 @@ export class StatsComponent implements OnInit {
     this.statsservice.getAllLinks().subscribe({
       next: (res: any) => {
         console.log('✅ Links from backend:', res);
-        this.links = res;
+        this.links = res.data;
         this.loading = false;
       },
       error: (err) => {

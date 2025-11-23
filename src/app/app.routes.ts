@@ -15,11 +15,11 @@ export const routes: Routes = [
   { path: 'code/:code', component: StatsComponent },
 
   // ✅ 404 Page
-  { path: 'not-found', component: RedirectComponent },
+  // { path: 'not-found', component: RedirectComponent },
 
   // ✅ Redirect handler (must stay second last)
   { path: ':code', component: RedirectComponent },
 
   // ✅ Catch-all wildcard (must be LAST)
-  { path: '**', redirectTo: 'not-found' }
+  { path: '**', redirectTo: '' }
 ];

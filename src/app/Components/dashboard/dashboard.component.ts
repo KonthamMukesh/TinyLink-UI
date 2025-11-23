@@ -89,16 +89,21 @@ ngAfterViewInit() {
   }
 
   // ✅ LOAD LINKS
-  loadLinks() {
-    this.dashboardService.getAllLinks().subscribe({
-      next: (res: any) => {
-        this.links = res || [];
-        this.filteredLinks = [...this.links];
-        this.calculateStats();
+loadLinks() {
+  this.dashboardService.getAllLinks().subscribe({
+    next: (res: any) => {
+      console.log('API Full Response:', res); // ✅ Debug
 
-      }
-    });
-  }
+      this.links = res.data || [];              // ✅ FIXED HERE
+      this.filteredLinks = [...this.links];
+      this.calculateStats();
+    },
+    error: (err) => {
+      console.error('API Error:', err);
+    }
+  });
+}
+
 
   // ✅ STATS
   calculateStats() {
@@ -119,17 +124,17 @@ ngAfterViewInit() {
 
   // ✅ COPY
 copy(code: string) {
-  const shortUrl = `http://localhost:4200/${code}`;
+  const shortUrl = `https://tinylink-api-g739.onrender.com/api/${code}`;
   navigator.clipboard.writeText(shortUrl).then(() => {
     alert('✅ Short link copied successfully!');
   });
 }
-
   // ✅ OPEN LINK
 visit(code: string) {
-  const apiBase = 'http://localhost:3000/api/r/';
-  window.open(`${apiBase}${code}`, '_blank');  // ✅ opens in NEW tab
+  const redirectUrl = `https://tinylink-api-g739.onrender.com/api/${code}`;
+  window.open(redirectUrl, '_blank');
 }
+
 
 
 
