@@ -25,19 +25,20 @@ export class HealthCheckComponent implements OnInit {
   }
 
   checkHealth() {
-    this.dashboardService.checkHealth().subscribe({
-      next: (res: any) => {
-        this.status = res.status;
-        this.dbStatus = res.database;
-        this.uptime = `⏱️ Uptime: ${res.uptime}`;
-        this.loading = false;
-      },
-      error: () => {
-        this.status = '❌ Server Down';
-        this.dbStatus = '❌ Database Offline';
-        this.uptime = 'Uptime unavailable';
-        this.loading = false;
-      }
-    });
-  }
+  this.dashboardService.checkHealth().subscribe({
+    next: (res: any) => {
+      this.status = `✅ ${res.status}`;
+      this.dbStatus = `🗄️ Database: ${res.database.status} - ${res.database.version}`;
+      this.uptime = `⏱️ Uptime: ${res.uptime}`;
+      this.loading = false;
+    },
+    error: () => {
+      this.status = '❌ Server Down';
+      this.dbStatus = '❌ Database Offline';
+      this.uptime = 'Uptime unavailable';
+      this.loading = false;
+    }
+  });
+}
+
 }
